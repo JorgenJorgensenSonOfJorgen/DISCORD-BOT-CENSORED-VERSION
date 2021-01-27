@@ -89,4 +89,4 @@ client.on('message', message =>{
 
 
 
-client.login('')
+client.login('Nzg1OTE5ODMzNzg3MjAzNjI0.X8-24g.FqIcmwSUjag-n_1vzjSwtcYAog8')

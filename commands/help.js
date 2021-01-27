@@ -2,7 +2,7 @@ module.exports = {
     name : "help",
     description: "shows a list of commands",
     execute(message,args){
-        let helpList1 = ["ping", "howmasculine",  'kill',  'principle','triangle', `ping100`]
+        let helpList1 = ["ping", "howmasculine",  'kill',  'principle','triangle', 'duel']
         let helpList2 = ['rolemaster', 'roleedit', 'hexcolors', 'rolelist', 'role', 'swear']
         let helplistlist = [helpList1, helpList2]
         if (args.length == 0){

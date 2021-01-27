@@ -37,9 +37,9 @@ module.exports = {
                         }
                         message.channel.send(angle)
                         if (!anglePI){
-                            message.channel.send(anglePI+ "PI")
-                        } else {
                             message.channel.send(angle / Math.PI + "PI")
+                        } else {
+                            message.channel.send(anglePI+ "PI")
                         }
                     } else if (args[0]=="degree"){
                         while(angle<0){

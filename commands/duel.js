@@ -18,21 +18,22 @@ module.exports = {
             if (lobbies[i].challenged == member1 && lobbies[i].member == member2 && lobbies[i].channel == message.channel.id) {
                 challengeAccept = true
                 lobbies[i].start = true
-                message.channel.send('game has started, use the -fire command along with wind speed')
+                message.channel.send('game has started, use the -fire command along with specified numbers')
                 setTimeout(()=> {
                     for (let i = 0; i < lobbies.length; i ++) {
                         //member1 has been challenged, he has specified who challenged him
                         if (lobbies[i].member == member2 && lobbies[i].challenged == member1 && lobbies[i].channel == message.channel.id) {
-                            message.channel.send(`"it's high noon, the wind is traveling at ${lobbies[i].headshot}km/h"`)
+                            message.channel.send(`"it's high noon, ${lobbies[i].headshot}`)
                             lobbies[i].canShoot = true
                             let d = new Date();
-                            lobbies[i].time = d.getTime()
+                            let time = d.getTime()
+                            lobbies[i].time = time
                             break
                         }
                     }
                     setTimeout(() => {
                         for (let i =0 ; i< lobbies.length; i ++){
-                            if (lobbies[i].member == member2 && lobbies[i].challenged == member1 && lobbies[i].channel == message.channel.id) {
+                            if (lobbies[i].member == member2 && lobbies[i].challenged == member1 && lobbies[i].channel == message.channel.id, lobbies[i].time == time) {
                                 message.channel.send('the two rangers were boomers who either cant react or cant hit anything')
                                 //end the lobby
                                 lobbies.splice(i,1)
@@ -50,11 +51,12 @@ module.exports = {
         //challenge is being issued, add  lobby restriction???? how to
         if (challengeAccept == false) {
             let d = new Date();
-            lobbies.push({member:member1, challenged: member2, start:false, canShoot : false, headshot : randInt(9), time: d.getTime(),channel:message.channel.id})
+            let time = d.getTime()
+            lobbies.push({member:member1, challenged: member2, start:false, canShoot : false, headshot : randInt(999), time: d.getTime(),channel:message.channel.id})
             message.channel.send('duel request sent')
             setTimeout(() => {
                 for (let i = 0; i < lobbies.length; i ++){
-                    if (lobbies[i].member == member1 && lobbies[i].challenged == member2 && lobbies[i].start == false) {
+                    if (lobbies[i].member == member1 && lobbies[i].challenged == member2 && lobbies[i].start == false && lobbies[i].time == time) {
                         lobbies.splice(i,1)
                         message.channel.send('opponent never showed up')
                         break

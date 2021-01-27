@@ -9,27 +9,31 @@ module.exports = {
             createRoles()
             async function createRoles(){
             //so we have to create a high role, a HEXTESTER role, CSGO, admin, imabadboy
+                if (!message.guild.roles.cache.find(r => r.name == 'dead')) {
+                    let dead = await message.guild.roles.create({ data:{name: 'dead', color:'0'}})
+                    await dead.setPosition(1)
+                }
                 if (!message.guild.roles.cache.find(r=>r.name =='CSGO')){
                     let csgo = await message.guild.roles.create({ data:{name: 'CSGO', color:'0'}})//lowest
-                    await csgo.setPosition(1)
+                    await csgo.setPosition(2)
                 }
                 if (!message.guild.roles.cache.find(r=>r.name =='High')){
                     let high = await message.guild.roles.create({ data:{name: 'High', color:'0'}})
-                    await high.setPosition(2)
+                    await high.setPosition(3)
                     await high.setPermissions('ADMINISTRATOR')
                 }
                 if (!message.guild.roles.cache.find(r=>r.name =='HEXTESTER')){
                     let hextester = await message.guild.roles.create({ data:{name: 'HEXTESTER', color:'0'}})
-                    await hextester.setPosition(3)
+                    await hextester.setPosition(4)
                 }
                 if (!message.guild.roles.cache.find(r=>r.name =='admin')){
                     let admin = await message.guild.roles.create({ data:{name: 'admin', color:'0'}})
-                    await admin.setPosition(4)
+                    await admin.setPosition(5)
                     await admin.setPermissions('ADMINISTRATOR')
                 }
                 if (!message.guild.roles.cache.find(r=>r.name =='imabadboy')){
                     let imabadboy = await message.guild.roles.create({ data:{name: 'imabadboy', color:'0'}})
-                    await imabadboy.setPosition(5)
+                    await imabadboy.setPosition(6)
                 }
                 message.channel.send('do command (-help desc) to understand the help command and see command list. Use desc in order to see the description and usage of each command')
             }
