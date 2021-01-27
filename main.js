@@ -73,6 +73,10 @@ client.on('message', message =>{
         client.commands.get('yikhei').execute(message, args);
     } else if (command == 'swear'){
         client.commands.get('swear').execute(message, args);
+    }else if (command == 'duel'){
+        client.commands.get('duel').execute(message, args,client);
+    }else if (command == 'fire'){
+        client.commands.get('fire').execute(message, args,client);
     }
 });
 
@@ -85,4 +89,4 @@ client.on('message', message =>{
 
 
 
-client.login('Nzg1OTE5ODMzNzg3MjAzNjI0.X8-24g.MP4LPUM_hVlNl7gY0UZD5xHYMxc')
+client.login('')

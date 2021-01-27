@@ -1,4 +1,5 @@
 module.exports = {
+    //add stuff here
     name : "initialize",
     description: "initialize the rolekiller bot by adding necessary roles",
     execute(message,args){
